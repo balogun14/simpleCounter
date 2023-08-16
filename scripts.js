@@ -5,40 +5,41 @@ let increaseButton = document.getElementById("increase");
 
 let screenValue = 0;
 
-
 function increase() {
   screenValue++;
-  document.getElementById("display").innerText = screenValue;
-  if (screenValue >0) {
-    document.getElementById("display").style.color = 'green';
-  }
-  
+  screen.innerText = screenValue;
 }
 
 function decrease() {
   screenValue--;
-  document.getElementById("display").innerText = screenValue;
-  if (screenValue <0) {
-    document.getElementById("display").style.color = 'red';
-  }
+  screen.innerText = screenValue;
 }
 
 function reset() {
   screenValue = "0";
-  document.getElementById("display").innerText = screenValue;
+  screen.innerText = screenValue;
 }
 
-
-
+function screenColor() {
+  if (screenValue == 0) {
+    screen.style.color = "black";
+  } else if (screenValue < 0) {
+    screen.style.color = "red";
+  } else {
+    screen.style.color = "green";
+  }
+}
 decreaseButton.addEventListener("click", () => {
   decrease();
+  screenColor();
 });
 
 increaseButton.addEventListener("click", () => {
   increase();
+  screenColor();
 });
 
 resetButton.addEventListener("click", () => {
   reset();
+  screenColor();
 });
-
